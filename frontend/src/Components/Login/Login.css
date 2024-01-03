@@ -1,0 +1,68 @@
+/* Styl dla kontenera logowania */
+.login-container {
+    width: 70%;
+    height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+/* Styl dla wnętrza kontenera logowania */
+.login-container-inside {
+    width: 30%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Styl dla labeli */
+  label {
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  /* Styl dla inputów */
+  input {
+    width: calc(100% - 12px); /* Szerokość inputu odjęta od paddingu */
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Styl dla przycisku */
+  button {
+    width: 102%;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Dodanie odstępu u góry */
+    margin-bottom: 10px; /* Dodanie odstępu na dole */
+  }
+  
+  /* Styl dla przycisku po najechaniu kursorem */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styl dla linku */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Styl dla linku po najechaniu kursorem */
+  a:hover {
+    text-decoration: underline;
+  }
