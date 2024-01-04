@@ -12,7 +12,7 @@ import Signup from './Components/Signup/Signup';
 
 function App() {
   return (
-    <div>
+    <main>
       <BrowserRouter>
       <Navbar />
         <Routes>
@@ -26,7 +26,7 @@ function App() {
          </Routes>
       </BrowserRouter>
 
-    </div>
+    </main>
   );
 }
 
