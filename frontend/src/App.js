@@ -9,6 +9,7 @@ import Contact from './Pages/Contact';
 import LoginSignup from './Pages/LoginSignup';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Signup from './Components/Signup/Signup';
+import AdminPanel from './Pages/AdminPanel';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/login' element={<LoginSignup />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/adminpanel' element={<AdminPanel />} />
+  
          </Routes>
       </BrowserRouter>
 

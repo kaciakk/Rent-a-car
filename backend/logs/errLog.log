@@ -19,3 +19,27 @@
 20240104	22:16:41	7bbbb043-85eb-498b-b3e2-7897333afef9	SyntaxError: Expected double-quoted property name in JSON at position 144	POST	/users	undefined
 20240104	22:31:24	5ddd4d7d-e4ed-4071-acdc-7699530ba754	TypeError: Cannot read properties of undefined (reading 'length')	POST	/users	undefined
 20240105	11:37:16	60581d3a-d59b-41e6-ba1b-706f5a60a6da	SyntaxError: Expected double-quoted property name in JSON at position 59	POST	/auth	undefined
+20240105	12:16:46	cd42d8e2-8bc9-46f1-8e4c-e42e5bf8aa7e	SyntaxError: Expected double-quoted property name in JSON at position 78	POST	/auth/login	undefined
+20240105	14:30:27	65c8961b-557c-4a39-b6bf-10e85ceddf3b	MongoServerSelectionError: connection <monitor> to 18.195.134.220:27017 timed out	POST	/auth/login	http://localhost:3000
+20240105	14:30:27	3c004ec0-bcda-4770-b998-4f39b37c153e	MongoServerSelectionError: connection <monitor> to 18.195.134.220:27017 timed out	POST	/auth/login	http://localhost:3000
+20240105	14:30:27	47184ef6-7612-4ac4-a037-e0a104c61631	MongoServerSelectionError: connection <monitor> to 18.195.134.220:27017 timed out	POST	/auth/login	http://localhost:3000
+20240105	14:30:33	4b61bac6-aede-4dc0-9712-bcdf26d63f2a	MongoServerSelectionError: connection <monitor> to 18.195.134.220:27017 timed out	POST	/auth/login	http://localhost:3000
+20240105	14:30:34	40794d64-9182-4d89-a9f5-6874cb735241	MongoServerSelectionError: connection <monitor> to 18.195.134.220:27017 timed out	POST	/auth/login	http://localhost:3000
+20240105	14:30:43	5524cd11-169d-4e33-bc0f-ff56f96b8385	MongoServerSelectionError: getaddrinfo ENOTFOUND ac-fu1cb34-shard-00-01.sfy81xi.mongodb.net	POST	/users/register	http://localhost:3000
+20240105	14:30:43	f63ba34c-a801-4be5-8137-542c81f67880	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:3000
+20240105	14:30:57	1665d763-0617-4d30-8728-68d39687b8d8	MongoServerSelectionError: getaddrinfo ENOTFOUND ac-fu1cb34-shard-00-01.sfy81xi.mongodb.net	POST	/users/register	http://localhost:3000
+20240105	14:31:24	3a6f1818-619f-4872-884f-ece3e4dd7d58	MongoServerSelectionError: getaddrinfo ENOTFOUND ac-fu1cb34-shard-00-01.sfy81xi.mongodb.net	POST	/auth/login	http://localhost:3000
+20240105	15:58:02	0c63d150-de5c-4e8c-bcd4-078ee6f39641	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:3000
+20240105	15:58:05	dbaa433b-08e9-4ed6-a7c8-f28ab47a0e1f	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:3000
+20240105	16:08:54	97f286e7-a318-4482-8d3c-e27cb99b52ff	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:3000
+20240105	16:08:56	54dfed76-839d-4035-9775-73d86c9acf5f	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/login	http://localhost:3000
+20240105	18:25:35	94c6d4e9-1520-4a6e-be32-0c6d3ec0351e	ValidationError: Car validation failed: trunkCapacity: Path `trunkCapacity` is required., numberOfDoors: Path `numberOfDoors` is required., numberOfSeats: Path `numberOfSeats` is required., transmission: Path `transmission` is required., engineType: Path `engineType` is required., pricePerDay: Path `pricePerDay` is required., color: Path `color` is required., year: Path `year` is required., model: Path `model` is required., brand: Path `brand` is required.	POST	/cars	undefined
+20240105	18:28:07	af0bc835-2f11-4255-83ca-2416bf6feba6	SyntaxError: Expected ',' or '}' after property value in JSON at position 113	POST	/cars	undefined
+20240105	18:28:13	263e64fc-747a-47d8-ab43-885006bb652b	ValidationError: Car validation failed: trunkCapacity: Path `trunkCapacity` is required., numberOfDoors: Path `numberOfDoors` is required., numberOfSeats: Path `numberOfSeats` is required., transmission: Path `transmission` is required., engineType: Path `engineType` is required., pricePerDay: Path `pricePerDay` is required., color: Path `color` is required., year: Path `year` is required., model: Path `model` is required., brand: Path `brand` is required.	POST	/cars	undefined
+20240105	18:39:30	d0bb59ee-6398-4f7c-872f-0aa19f7fd32b	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	undefined
+20240105	18:39:47	20debb38-1cf0-42da-aefb-2f02df1e4e67	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	undefined
+20240105	18:39:52	defd4538-bbbe-4d19-a2e6-79b24cfae425	SyntaxError: Expected double-quoted property name in JSON at position 182	GET	/cars	undefined
+20240105	18:39:55	db1dc558-d23c-4b5c-9ea3-f998e5aa3ecd	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	undefined
+20240105	18:39:59	12532725-aa84-4831-b42b-94abdbdfef18	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	undefined
+20240105	18:40:59	95916b68-ab09-4072-b20d-2d7fb37b7fba	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	http://localhost:3000
+20240105	18:40:59	6e09e946-26bc-4d7c-ac83-9fe1592e84f0	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	http://localhost:3000

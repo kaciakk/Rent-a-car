@@ -18,26 +18,31 @@ const getAllCars = asyncHandler(async (req, res) => {
 });
 
 const createNewCar = asyncHandler(async (req, res) => {
-    const { user, title, text } = req.body;
+    const { brand, model, year, color, pricePerDay, engineType, airConditioning, transmission, numberOfSeats, numberOfDoors, trunkCapacity } = req.body;
 
-    if (!user || !title || !text) {
+    if (!brand || !model || !year || !color || !pricePerDay || !engineType || !transmission || !numberOfSeats || !numberOfDoors || !trunkCapacity) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
-    const duplicate = await Car.findOne({ title }).lean().exec();
-
-    if (duplicate) {
-        return res.status(409).json({ message: 'Duplicate car title' });
-    }
-
-    const car = await Car.create({ user, title, text });
+    const car = await Car.create({
+        brand,
+        model,
+        year,
+        color,
+        pricePerDay,
+        engineType,
+        airConditioning,
+        transmission,
+        numberOfSeats,
+        numberOfDoors,
+        trunkCapacity
+    });
 
     if (car) {
-        return res.status(201).json({ message: 'New car created' });
+        return res.status(201).json({ message: 'New car created', car });
     } else {
         return res.status(400).json({ message: 'Invalid car data received' });
     }
-
 });
 
 const updateCar = asyncHandler(async (req, res) => {

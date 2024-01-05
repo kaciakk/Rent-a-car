@@ -7,13 +7,13 @@ const asyncHandler = require('express-async-handler')
 // @route POST /auth
 // @access Public
 const login = asyncHandler(async (req, res) => {
-    const { username, password } = req.body
+    const { email, password } = req.body
 
-    if (!username || !password) {
+    if (!email || !password) {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
-    const foundUser = await User.findOne({ username }).exec()
+    const foundUser = await User.findOne({ email }).exec()
 
     if (!foundUser ) {
         return res.status(401).json({ message: 'Unauthorized' })
@@ -22,11 +22,13 @@ const login = asyncHandler(async (req, res) => {
     const match = await bcrypt.compare(password, foundUser.password)
 
     if (!match) return res.status(401).json({ message: 'Unauthorized' })
+    
 
     const accessToken = jwt.sign(
         {
             "UserInfo": {
-                "username": foundUser.username,
+                "email": foundUser.email,
+                "username": foundUser.username, // Dodaj username do danych UserInfo
                 "roles": foundUser.roles
             }
         },
@@ -48,9 +50,14 @@ const login = asyncHandler(async (req, res) => {
         maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match rT
     })
 
-    // Send accessToken containing username and roles 
-    res.json({ accessToken })
-})
+ // Wyślij accessToken zawierający username i role
+ res.json({
+    accessToken,
+    username: foundUser.username, // Dodaj username do odpowiedzi
+    email: foundUser.email,
+    roles: foundUser.roles
+});
+});
 
 // @desc Refresh
 // @route GET /auth/refresh
