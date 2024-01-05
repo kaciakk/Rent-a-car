@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Importuj axios
 
 
-const LOGIN_URL ='http://localhost:3001/login';
+const LOGIN_URL ='http://localhost:3500/users/login';
 
 
 export default function Login() {
@@ -34,21 +34,20 @@ export default function Login() {
     e.preventDefault();
 
     try {
-        const response = await axios.post(LOGIN_URL,
-            JSON.stringify({ email, password }),
-            {
-                headers: { 'Content-Type': 'application/json' },
-                withCredentials: true
-            }
-        );
-        console.log(JSON.stringify(response?.data));
-        //console.log(JSON.stringify(response));
-        const accessToken = response?.data?.accessToken;
-        const roles = response?.data?.roles;
-        setAuth({ email, password, roles, accessToken });
+      const response = await axios.post('http://localhost:3500/users/login', {
+      email,
+    password
+}, {
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true
+});
+
+  
         setEmail('');
         setPassword('');
         setSuccess(true);
+        navigate('/')
+        console.log('Zalogowano pomyślnie');
     } catch (err) {
         if (!err?.response) {
             setErrMsg('No Server Response');
@@ -72,6 +71,7 @@ export default function Login() {
         <div>
           <label htmlFor='email'>Email</label>
           <input
+          name='email'
            type='text'
            id='email'
            ref={emailRef}
@@ -84,6 +84,7 @@ export default function Login() {
         <div>
           <label htmlFor='password'>Password:</label>
           <input 
+          name='password'
           type='password'
           id='password'
           onChange={(e) => setPassword(e.target.value)}

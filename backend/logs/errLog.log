@@ -14,3 +14,8 @@
 20240104	18:29:20	3c64586e-ae8c-4bee-93eb-ee2d877d3938	ValidationError: User validation failed: email: Path `email` is required.	POST	/users	undefined
 20240104	18:38:07	8b02540f-e309-4bc4-acfa-b29eebaa41b7	SyntaxError: Expected ',' or '}' after property value in JSON at position 46	PATCH	/users	undefined
 20240104	18:47:52	aec92e2e-9ef2-4ff3-9af3-fa3cee0b4c13	SyntaxError: Expected ',' or '}' after property value in JSON at position 64	PATCH	/users/6596ecd3f39eda1d341bc26d	undefined
+20240104	21:57:47	f40ba392-3306-4a97-b580-b087bb2065bd	SyntaxError: Unexpected non-whitespace character after JSON at position 206	PATCH	/users	undefined
+20240104	22:00:29	491ad436-944c-44e7-aa0f-b46aca62707e	SyntaxError: Expected double-quoted property name in JSON at position 147	PATCH	/users	undefined
+20240104	22:16:41	7bbbb043-85eb-498b-b3e2-7897333afef9	SyntaxError: Expected double-quoted property name in JSON at position 144	POST	/users	undefined
+20240104	22:31:24	5ddd4d7d-e4ed-4071-acdc-7699530ba754	TypeError: Cannot read properties of undefined (reading 'length')	POST	/users	undefined
+20240105	11:37:16	60581d3a-d59b-41e6-ba1b-706f5a60a6da	SyntaxError: Expected double-quoted property name in JSON at position 59	POST	/auth	undefined

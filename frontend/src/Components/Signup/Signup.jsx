@@ -8,7 +8,7 @@ import axios from 'axios';
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-const REGISTER_URL = 'http://localhost:3001/register';
+const REGISTER_URL = 'http://localhost:3500/users/register';
 
 
 export default function Signup() {
@@ -65,40 +65,46 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if button enabled with JS hack
-        const v1 = USER_REGEX.test(username);
-        const v2 = PASSWORD_REGEX.test(password);
-        if (!v1 || !v2) {
-            setErrMsg("Invalid Entry");
-            return;
-        } 
-        try {
-          const response = await axios.post(REGISTER_URL, {username, password, email },
-          {
-            headers: {'Content-Type': 'application/json' },
-            withCredentials: true
-          }
-          );
-          console.log(response.data);
-          console.log(response.accessToken);
-          console.log(JSON.stringify(response))
-          setSuccess(true);
-      } catch(err) {
-        if (!err?.response) {
-          setErrMsg('No Server Response');
+  
+    const v1 = USER_REGEX.test(username);
+    const v2 = PASSWORD_REGEX.test(password);
+  
+    if (!v1 || !v2) {
+      setErrMsg("Invalid Entry");
+      return;
+    } 
+  
+    try {
+      const response = await axios.post('http://localhost:3500/users/register', {
+        username: username,
+        password: password,
+        email: email
+      }, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true
+      });
+  
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      setSuccess(true);
+      navigate('/login')
+    } catch(err) {
+      if (!err?.response) {
+        
+        setErrMsg('No Server Response');
       } else if (err.response?.status === 409) {
-          setErrMsg('Username Taken');
+        setErrMsg('Username Taken');
       } else {
-          setErrMsg('Registration Failed')
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+        setErrMsg('Registration Failed')
       }
       errRef.current.focus();
+    }
   }
-}
-   // axios.post('http://localhost:3001/register', { username, email, password })
-    //  .then(result => console.log(result),
-    //  navigate('/login'))
-    //  .catch(err => console.log(err));
- // };
+  
 
   return (
     <section className='signup-container'>
@@ -113,6 +119,7 @@ export default function Signup() {
             </label>
             <input
               type="text"
+              name="username"
               id="username"
               ref={usernameRef}
               autoComplete='off'
@@ -138,6 +145,7 @@ export default function Signup() {
             
             <input
               type="email"
+              name="email"
               id="email"
               ref={emailRef}
               autoComplete='off'
@@ -162,6 +170,7 @@ export default function Signup() {
             
             <input
               type="password"
+              name="password"
               id="password"
               onChange={(e) => setPassword(e.target.value)}
               required
