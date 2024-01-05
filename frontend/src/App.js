@@ -10,6 +10,7 @@ import LoginSignup from './Pages/LoginSignup';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Signup from './Components/Signup/Signup';
 import AdminPanel from './Pages/AdminPanel';
+import Cart from './Pages/Cart';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/login' element={<LoginSignup />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/adminpanel' element={<AdminPanel />} />
+          <Route path='/cart' element={<Cart />} />
   
          </Routes>
       </BrowserRouter>

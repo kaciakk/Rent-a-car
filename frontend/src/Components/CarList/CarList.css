@@ -1,0 +1,29 @@
+.car-list-container {
+    padding: 20px;
+  }
+  
+  .car-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .car-item {
+    width: calc(20% - 20px); /* Ustawienie szerokości na 25% szerokości kontenera z odstępem 20px */
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .car-image {
+    margin-left:10px;
+    width: 330px; /* Szerokość ramki na zdjęcie */
+    height: 220px; /* Dostosuj wysokość ramki, aby zachować proporcje zdjęcia */
+    overflow: hidden; /* Ukryj część zdjęcia, która przekracza ramkę */
+  }
+  
+  .car-image img {
+    width: 100%; /* Ustawienie szerokości zdjęcia na 100% szerokości ramki */
+    height: auto; /* Automatyczne dostosowanie wysokości, aby zachować proporcje */
+    object-fit: cover; /* Dopasowanie zdjęcia do ramki, zachowując proporcje i ukrywając część, która nie zmieści się */
+  }
+  

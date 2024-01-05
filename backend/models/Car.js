@@ -49,7 +49,12 @@ const carSchema = new mongoose.Schema({
     trunkCapacity: {
         type: Number,
         required: true
+    },
+    photoUrl: {
+        type: String,
+        required: false,
     }
+
 });
 
 module.exports = mongoose.model('Car', carSchema);

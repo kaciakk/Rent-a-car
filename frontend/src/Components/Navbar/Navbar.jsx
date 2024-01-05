@@ -12,6 +12,7 @@ export default function Navbar() {
   }
   
   const isAdmin = roles && roles.includes('Admin');
+  const isUser = roles && roles.includes('User');
   
 
 
@@ -44,7 +45,13 @@ export default function Navbar() {
      
         </ul>
       </div>
+
       <div className='nav-login'>
+      {isUser && ( // Warunek sprawdzający czy użytkownik ma rolę admin
+      <li>
+            <Link to='cart'>Cart</Link>
+          </li>
+           )}
         {accessToken ? (
           <p>Zalogowany jako: {username}</p>
         ) : (
@@ -52,6 +59,7 @@ export default function Navbar() {
             <button>Login</button>
           </Link>
         )}
+        
       </div>
     </div>
   );

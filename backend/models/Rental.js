@@ -1,14 +1,12 @@
-const mongoose = require('mongoose');
-
-const rentalSchema = new mongoose.Schema({
-    user: {
+const carRentalSchema = new mongoose.Schema({
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'User', // Odwołanie do kolekcji użytkowników
         required: true
     },
-    car: {
+    carId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Car',
+        ref: 'Car', // Odwołanie do kolekcji samochodów
         required: true
     },
     startDate: {
@@ -19,14 +17,7 @@ const rentalSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    totalCost: {
-        type: Number,
-        required: true
-    },
-    isReturned: {
-        type: Boolean,
-        default: false
-    }
+    // Dodatkowe informacje o wypożyczeniu...
 });
 
-module.exports = mongoose.model('Rental', rentalSchema);
+module.exports = mongoose.model('CarRental', carRentalSchema);
