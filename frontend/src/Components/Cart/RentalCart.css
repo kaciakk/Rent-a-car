@@ -1,0 +1,43 @@
+/* RentalList.css */
+
+.rental-list-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .rental-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rental-item {
+    width: calc(20% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .rental-image {
+    width: 350px;
+    height: 220px;
+    overflow: hidden;
+  }
+  
+  .rental-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .rental-item:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
