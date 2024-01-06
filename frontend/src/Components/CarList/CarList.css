@@ -4,41 +4,46 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-  }
-  
-  .car-grid {
+}
+
+.car-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     align-items: center;
-  }
-  
-  .car-item {
-    width: calc(20% - 20px);
+}
+
+.car-item {
+    width: calc(100% - 20px); /* Zmiana szerokości dla małych urządzeń */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px; /* Zaokrąglenie rogów */
     overflow: hidden;
     transition: box-shadow 0.3s ease-in-out;
-  }
-  
-  .car-image {
-    width: 350px;
-    height: 220px;
+}
+
+.car-image {
+    width: 100%; /* Zmiana szerokości dla małych urządzeń */
+    height: auto;
     overflow: hidden;
-  }
-  
-  .car-image img {
+}
+
+.car-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
     cursor: pointer;
-  }
-  
-  /* Podświetlenie po najechaniu */
-  .car-item:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-  }
-  
+/* Podświetlenie po najechaniu */
+.car-item:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 788px) {
+    .car-item {
+        width: calc(20% - 10px); /* Powrót do oryginalnej szerokości na większych ekranach */
+    }
+}
+
