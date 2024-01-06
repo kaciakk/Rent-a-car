@@ -40,7 +40,7 @@ export default function Login() {
     withCredentials: true
 });
   // Tutaj otrzymujemy odpowiedź z tokenem
-  const { accessToken, username, roles } = response.data;
+  const { accessToken, username, roles, _id } = response.data;
 
 
   
@@ -57,6 +57,7 @@ export default function Login() {
       username,
       email,
       roles,
+      _id,
  
   
     },
@@ -68,6 +69,7 @@ export default function Login() {
         console.log('roles:', roles);
         console.log('username:', username);
         console.log('accessToken:', accessToken);
+        console.log('_id:', _id);
         console.log('Zalogowano pomyślnie');
     } catch (err) {
         if (!err?.response) {

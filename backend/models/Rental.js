@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const carRentalSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +19,12 @@ const carRentalSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    // Dodatkowe informacje o wypożyczeniu...
+    additionalInfo: {
+        type: String // Może to być obiekt z dodatkowymi informacjami
+    }
+    // Inne pola, jeśli potrzebne
 });
 
-module.exports = mongoose.model('CarRental', carRentalSchema);
+const CarRental = mongoose.model('CarRental', carRentalSchema);
+
+module.exports = CarRental;

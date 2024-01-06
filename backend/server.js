@@ -29,7 +29,8 @@ app.use('/', require('./routes/root'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 app.use('/cars', require('./routes/carRoutes'))
-app.use('/rent', require('./routes/rentalRoutes'))
+
+app.use('/car-rentals', require('./routes/rentalRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)

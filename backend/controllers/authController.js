@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
@@ -29,7 +29,8 @@ const login = asyncHandler(async (req, res) => {
             "UserInfo": {
                 "email": foundUser.email,
                 "username": foundUser.username, // Dodaj username do danych UserInfo
-                "roles": foundUser.roles
+                "roles": foundUser.roles,
+                "_id": foundUser._id
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
@@ -55,7 +56,8 @@ const login = asyncHandler(async (req, res) => {
     accessToken,
     username: foundUser.username, // Dodaj username do odpowiedzi
     email: foundUser.email,
-    roles: foundUser.roles
+    roles: foundUser.roles,
+    _id: foundUser._id
 });
 });
 

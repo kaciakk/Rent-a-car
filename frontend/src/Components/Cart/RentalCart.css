@@ -1,12 +1,13 @@
-/* Twój CSS */
-.car-list-container {
+/* RentalList.css */
+
+.rental-list-container {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
   }
   
-  .car-grid {
+  .rental-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -14,7 +15,7 @@
     align-items: center;
   }
   
-  .car-item {
+  .rental-item {
     width: calc(20% - 20px);
     padding: 10px;
     border: 1px solid #ccc;
@@ -23,22 +24,20 @@
     transition: box-shadow 0.3s ease-in-out;
   }
   
-  .car-image {
+  .rental-image {
     width: 350px;
     height: 220px;
     overflow: hidden;
   }
   
-  .car-image img {
+  .rental-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
     cursor: pointer;
   }
   
-  /* Podświetlenie po najechaniu */
-  .car-item:hover {
+  .rental-item:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-
   }
   

@@ -9,10 +9,11 @@ export const authReducer = (state, action) => {
     accessToken: action.payload.accessToken,
     username: action.payload.username,
     email: action.payload.email,
-    roles: action.payload.roles
+    roles: action.payload.roles,
+    _id: action.payload._id
   };
     case 'LOGOUT':
-      return { accessToken: null, username: null, email: null, roles: null };
+      return { accessToken: null, username: null, email: null, roles: null, _id: null };
     default:
       return state;
   }
@@ -25,6 +26,7 @@ export const AuthContextProvider = ({ children }) => {
     accessToken: null,
     email: null,
     roles: null,
+    _id: null,
   })
 
   console.log('AuthContext state:', state)
