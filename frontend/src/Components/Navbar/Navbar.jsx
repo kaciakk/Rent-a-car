@@ -37,8 +37,15 @@ export default function Navbar() {
           </li>
           {isAdmin && (
             <li>
-              <Link to='adminpanel'>Admin Panel</Link>
+              <Link to='adminpanel'>Add New Car</Link>
             </li>
+            
+          )}
+          {isAdmin && (
+            <li>
+              <Link to='admincontrol'>Control Panel</Link>
+            </li>
+            
           )}
         </ul>
       </div>

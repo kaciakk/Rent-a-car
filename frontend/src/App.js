@@ -10,7 +10,9 @@ import LoginSignup from './Pages/LoginSignup';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Signup from './Components/Signup/Signup';
 import AdminPanel from './Pages/AdminPanel';
+import AdminControl from './Pages/AdminControl';
 import Cart from './Pages/Cart';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <BrowserRouter>
       <Navbar />
         <Routes>
+          
           <Route path='/' element={<Home />} />
           <Route path='/cars' element={<Cars />} />
           <Route path='/offer' element={<Offer />} />
@@ -26,7 +29,9 @@ function App() {
           <Route path='/login' element={<LoginSignup />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/adminpanel' element={<AdminPanel />} />
+          <Route path='/admincontrol' element={<AdminControl />} />
           <Route path='/cart' element={<Cart />} />
+          
   
          </Routes>
       </BrowserRouter>
