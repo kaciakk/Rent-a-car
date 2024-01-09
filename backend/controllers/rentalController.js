@@ -8,13 +8,39 @@ const asyncHandler = require('express-async-handler');
 const rentCar = asyncHandler(async (req, res) => {
     const { userId, carId, startDate, endDate } = req.body;
 
-    // Sprawdzenie, czy wszystkie wymagane pola zostały dostarczone
     if (!userId || !carId || !startDate || !endDate) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
     try {
-        // Utworzenie nowego wypożyczenia
+        const car = await Car.findById(carId).exec();
+
+        if (!car || !car.available) {
+            return res.status(404).json({ message: 'Car not found or unavailable' });
+        }
+
+        const existingRental = await CarRental.findOne({
+            carId,
+            $or: [
+                {
+                    startDate: { $lte: startDate },
+                    endDate: { $gte: startDate }
+                },
+                {
+                    startDate: { $lte: endDate },
+                    endDate: { $gte: endDate }
+                },
+                {
+                    startDate: { $gte: startDate },
+                    endDate: { $lte: endDate }
+                }
+            ]
+        }).exec();
+
+        if (existingRental) {
+            return res.status(409).json({ message: 'Car already rented for this period' });
+        }
+
         const carRental = await CarRental.create({
             userId,
             carId,
@@ -22,6 +48,10 @@ const rentCar = asyncHandler(async (req, res) => {
             endDate,
             // Dodatkowe informacje o wypożyczeniu...
         });
+
+        car.available = false;
+        car.reservedBy = userId;
+        await car.save();
 
         res.status(201).json({ message: 'Car rented successfully', carRental });
     } catch (error) {
