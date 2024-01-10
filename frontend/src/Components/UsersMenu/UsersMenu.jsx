@@ -131,14 +131,14 @@ const UsersMenu = () => {
   <img src={photoUrl} alt="Data entry preview" />
 </div>
 )}
-          <p>Marka: {brand}</p>
+          <p>Brand: {brand}</p>
           <p>Model: {model}</p>
-          <p>Typ silnika: {engineType}</p>
-          <p>Klimatyzacja: {airConditioning ? 'Tak' : 'Nie'}</p>
-          <p>Transmisja: {transmission}</p>
-          <p>Liczba miejsc: {numberOfSeats}</p>
-          <p>Liczba drzwi: {numberOfDoors}</p>
-          <p>Pojemność bagażnika: {trunkCapacity}</p>
+          <p>Engine type:  {engineType}</p>
+          <p>AirConditioning: {airConditioning ? 'Tak' : 'Nie'}</p>
+          <p>Transmission: {transmission}</p>
+          <p>Number of seats: {numberOfSeats}</p>
+          <p>Number of doors:  {numberOfDoors}</p>
+          <p>Trunk capacity: {trunkCapacity}</p>
           <button type="submit">Add new car</button>
     </div>
     

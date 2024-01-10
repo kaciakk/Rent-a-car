@@ -93,14 +93,14 @@ const CarList = () => {
               {selectedCar.photoUrl && (
                <img src={selectedCar.photoUrl} alt={`Zdjęcie samochodu ${selectedCar.brand} ${selectedCar.model}`} />
                 )}
-              <p>Marka: {selectedCar.brand}</p>
+              <p>Brand: {selectedCar.brand}</p>
               <p>Model: {selectedCar.model}</p>
-              <p>Typ silnika: {selectedCar.engineType}</p>
-              <p>Klimatyzacja: {selectedCar.airConditioning ? 'Tak' : 'Nie'}</p>
-              <p>Transmisja: {selectedCar.transmission}</p>
-              <p>Liczba miejsc: {selectedCar.numberOfSeats}</p>
-              <p>Liczba drzwi: {selectedCar.numberOfDoors}</p>
-              <p>Pojemność bagażnika: {selectedCar.trunkCapacity}</p>
+              <p>Engine type: {selectedCar.engineType}</p>
+              <p>Air conditioning: {selectedCar.airConditioning ? 'Yes' : 'No'}</p>
+              <p>Transmission: {selectedCar.transmission}</p>
+              <p>Number of seats: {selectedCar.numberOfSeats}</p>
+              <p>Number of doors: {selectedCar.numberOfDoors}</p>
+              <p>Trunk capacity: {selectedCar.trunkCapacity}</p>
               
             </div>
           )}
@@ -108,25 +108,25 @@ const CarList = () => {
       </Modal>
 
             <div className="car-details">
-            <p>Marka: {car.brand}</p>
+            <p>Branda: {car.brand}</p>
               <p>Model: {car.model}</p>
-              <p>Typ silnika: {car.engineType}</p>
-              <p>Klimatyzacja: {car.airConditioning ? 'Tak' : 'Nie'}</p>
-              <p>Transmisja: {car.transmission}</p>
-              <p>Liczba miejsc: {car.numberOfSeats}</p>
-              <p>Liczba drzwi: {car.numberOfDoors}</p>
-              <p>Pojemność bagażnika: {car.trunkCapacity}</p>
+              <p>Engine type: {car.engineType}</p>
+              <p>AirConditioning: {car.airConditioning ? 'Tak' : 'Nie'}</p>
+              <p>Transmission:: {car.transmission}</p>
+              <p>Number of seats: {car.numberOfSeats}</p>
+              <p>Number of doors: {car.numberOfDoors}</p>
+              <p>Trunk capacity:: {car.trunkCapacity}</p>
               <button onClick={() => {
                handleReserveClick(car);
                 setIsModalOpen(true);
-                }}>Zarezerwuj</button>
+                }}>Reserve</button>
               <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
               {selectedCar && (<div>
                 
-                <h2>Rezerwacja samochodu {selectedCar.brand} {selectedCar.model}</h2>
-                <label>Data rozpoczęcia:</label>
+                <h2>Car reservation {selectedCar.brand} {selectedCar.model}</h2>
+                <label>Start date:</label>
                 <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-                <label>Data zakończenia:</label>
+                <label>End date:</label>
                 <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                 <button onClick={handleReservationSubmit}>Zatwierdź rezerwację</button>
                 </div>

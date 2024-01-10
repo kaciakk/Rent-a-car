@@ -69,7 +69,7 @@ export default function BestDeals() {
             <p>Model: {car.model}</p>
 
             <Link to={`/cars/`}>
-      <button>Więcej informacji</button>
+      <button>More information</button>
     </Link>
           </div>
         ))}
