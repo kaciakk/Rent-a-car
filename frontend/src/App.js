@@ -12,6 +12,7 @@ import Signup from './Components/Signup/Signup';
 import AdminPanel from './Pages/AdminPanel';
 import AdminControl from './Pages/AdminControl';
 import Cart from './Pages/Cart';
+import { Footer } from './Components/Footer/Footer';
 
 
 function App() {

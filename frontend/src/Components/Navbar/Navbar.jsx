@@ -68,9 +68,8 @@ export default function Navbar() {
       <div className='nav-login'>
         
         {accessToken ? (
-          <div>
+          <div className='user-profile'>
             <p>Zalogowany jako: {username}</p>
-    
             <button onClick={handleLogout}>Logout</button>
           </div>
         ) : (

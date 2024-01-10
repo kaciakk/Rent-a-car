@@ -1,13 +1,116 @@
-.car-gif{
-    display: flex;
-    justify-content: center;
+/* Responsywność dla gifa */
+.car-gif {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
-.car-bestdeal-container{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    
+
+.text-overlay {
+  position: absolute;
+  top: 100px;
+  left: 725px;
+}
+
+/* Responsywność dla ikon */
+.icon-check {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 1px;
+}
+
+/* Responsywność dla napisów na gifu */
+.text-overlay-second-into {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+}
+
+.text-overlay-second {
+  display: flex;
+  padding: 10px;
+  position: absolute;
+  top: 570px;
+  left: 650px;
+}
+
+/* Responsywność dla sekcji 'car-bestdeal-container' */
+.car-bestdeal-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Responsywność dla sekcji 'car-rental-container' */
+.car-rental-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.car-rental-container-into {
+  width: 250px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dodaj style dla klasy 'icon' */
+.icon {
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1px;
+}
+
+.car-rental-container-arrow {
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsywność dla tekstu centralnego */
+.text-center {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+/* Responsywność na mniejsze urządzenia */
+@media (max-width: 768px) {
+  .car-rental-container-into {
+    width: 180px;
+    padding: 30px;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Dodaj więcej reguł responsywności według potrzeb */
 }

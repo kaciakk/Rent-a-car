@@ -4,5 +4,6 @@ export default function Cart() {
   return (
     
     <div><RentalCart /></div>
+    
   )
 }
