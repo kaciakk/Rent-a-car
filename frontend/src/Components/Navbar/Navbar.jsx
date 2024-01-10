@@ -3,9 +3,10 @@ import './Navbar.css';
 import logo from '../Assets/logo.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
 
 export default function Navbar() {
-  const { username, roles, accessToken } = useContext(AuthContext); // Pobierz username i accessToken z kontekstu autentykacji
+  const { username, roles, accessToken, dispatch } = useContext(AuthContext); // Pobierz username, roles, accessToken i dispatch z kontekstu autentykacji
 
   function hasUserRole(roles, roleToCheck) {
     return roles.includes(roleToCheck);
@@ -16,6 +17,21 @@ export default function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false); // Stan do zarządzania widocznością menu na mniejszych ekranach
 
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:3500/auth/logout'); // Wywołaj endpoint do wylogowania
+      dispatch({ type: 'LOGOUT' }); // Wywołaj akcję LOGOUT z kontekstu autentykacji
+
+      // Wyczyść dane z localStorage po wylogowaniu
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('username');
+      localStorage.removeItem('email');
+      localStorage.removeItem('roles');
+      localStorage.removeItem('_id');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
   return (
     <div className='navbar'>
       <div className='nav-logo'>
@@ -26,24 +42,19 @@ export default function Navbar() {
           <li>
             <Link to='cars'>Cars</Link>
           </li>
-          <li>
-            <Link to='offer'>Offer</Link>
-          </li>
-          <li>
-            <Link to='aboutus'>About us</Link>
-          </li>
+          
           <li>
             <Link to='contact'>Contact</Link>
           </li>
+         
+          {isUser && (
+          <li>
+            <Link to='cart'>Your Cars</Link>
+          </li>
+        )}
           {isAdmin && (
             <li>
               <Link to='adminpanel'>Add New Car</Link>
-            </li>
-            
-          )}
-          {isAdmin && (
-            <li>
-              <Link to='admincontrol'>Control Panel</Link>
             </li>
             
           )}
@@ -55,13 +66,13 @@ export default function Navbar() {
       </div>
 
       <div className='nav-login'>
-        {isUser && (
-          <li>
-            <Link to='cart'>Cart</Link>
-          </li>
-        )}
+        
         {accessToken ? (
-          <p>Zalogowany jako: {username}</p>
+          <div>
+            <p>Zalogowany jako: {username}</p>
+    
+            <button onClick={handleLogout}>Logout</button>
+          </div>
         ) : (
           <Link to="/login">
             <button>Login</button>

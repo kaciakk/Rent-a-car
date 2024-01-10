@@ -89,6 +89,7 @@ const CarList = () => {
         <div>
           {selectedCar && (
             <div>
+  
               {selectedCar.photoUrl && (
                <img src={selectedCar.photoUrl} alt={`Zdjęcie samochodu ${selectedCar.brand} ${selectedCar.model}`} />
                 )}

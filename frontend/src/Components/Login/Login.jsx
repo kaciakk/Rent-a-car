@@ -42,12 +42,14 @@ export default function Login() {
   // Tutaj otrzymujemy odpowiedź z tokenem
   const { accessToken, username, roles, _id } = response.data;
 
-
   
 
   // Zapisujemy token w localStorage, aby zachować go po odświeżeniu strony
   localStorage.setItem('accessToken', accessToken);
-
+  localStorage.setItem('username', username);
+  localStorage.setItem('email', email);
+  localStorage.setItem('roles', roles);
+  localStorage.setItem('_id', _id);
 
   // Aktualizujemy stan w AuthContext za pomocą dispatch
   dispatch({
@@ -57,11 +59,10 @@ export default function Login() {
       username,
       email,
       roles,
-      _id,
- 
-  
+      _id
     },
   });
+
         setEmail('');
         setPassword('');
         setSuccess(true);

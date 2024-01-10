@@ -86,11 +86,13 @@ const updateCar = asyncHandler(async (req, res) => {
         carToUpdate.numberOfDoors = numberOfDoors || carToUpdate.numberOfDoors;
         carToUpdate.trunkCapacity = trunkCapacity || carToUpdate.trunkCapacity;
         carToUpdate.photoUrl = photoUrl || carToUpdate.photoUrl;
-
         // Sprawdzenie i aktualizacja stanu dostępności i zarezerwowanego użytkownika
         if (available !== undefined ) {
             carToUpdate.available = available;
             
+        }
+        if (reservedBy !== undefined) {
+            carToUpdate.reservedBy = reservedBy;
         }
 
         const updatedCar = await carToUpdate.save();

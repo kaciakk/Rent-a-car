@@ -5,7 +5,7 @@ import BestDeals from '../Components/BestDeals/BestDeals';
 export default function Home() {
   return (
     <div>
-    
+     
      <BestDeals />
     </div>
   );

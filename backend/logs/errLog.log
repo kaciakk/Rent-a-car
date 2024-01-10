@@ -49,3 +49,4 @@
 20240105	21:10:51	058e239f-883c-4bc9-b940-42125460cbd8	TypeError: Cannot read properties of null (reading 'username')	GET	/cars	undefined
 20240105	21:17:06	45424b9f-cbba-4a73-947a-726cdb8eb160	SyntaxError: Unexpected non-whitespace character after JSON at position 315	POST	/cars	undefined
 20240109	12:40:15	830c63b9-5d1c-4346-86e9-7d430c8a4b15	SyntaxError: Expected double-quoted property name in JSON at position 29	PATCH	/cars/659863e045c130f1a5d649db	undefined
+20240110	13:34:38	4aede565-4e89-4455-af5f-fdfa05a59457	ValidationError: Car validation failed: year: Cast to Number failed for value "as" (type string) at path "year"	POST	/cars/	http://localhost:3000
