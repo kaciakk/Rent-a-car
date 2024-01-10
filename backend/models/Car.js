@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const carSchema = new mongoose.Schema({
     brand: {
         type: String,
@@ -53,8 +52,12 @@ const carSchema = new mongoose.Schema({
     photoUrl: {
         type: String,
         required: false,
+    },
+    reservedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        default: null // Domyślnie wartość null oznacza, że samochód nie jest zarezerwowany przez żadnego użytkownika
     }
-
 });
 
 module.exports = mongoose.model('Car', carSchema);

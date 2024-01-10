@@ -1,5 +1,6 @@
 const Car = require('../models/car');
 const User = require('../models/user');
+const CarRental = require('../models/rental');
 const asyncHandler = require('express-async-handler');
 
 const getAllCars = asyncHandler(async (req, res) => {
@@ -14,7 +15,7 @@ const getAllCars = asyncHandler(async (req, res) => {
             const user = await User.findById(car.user).lean().exec();
 
             if (!user) {
-                return { ...car, username: 'Unknown' }; // Jeśli użytkownik nie został znaleziony, ustaw 'Unknown' jako nazwę użytkownika
+                return { ...car, username: 'Unknown' };
             }
 
             return { ...car, username: user.username };
@@ -26,9 +27,8 @@ const getAllCars = asyncHandler(async (req, res) => {
     }
 });
 
-
 const createNewCar = asyncHandler(async (req, res) => {
-    const { brand, model, year, color, pricePerDay, engineType, airConditioning, transmission, numberOfSeats, numberOfDoors, trunkCapacity,photoUrl } = req.body;
+    const { brand, model, year, color, pricePerDay, engineType, airConditioning, transmission, numberOfSeats, numberOfDoors, trunkCapacity, photoUrl } = req.body;
 
     if (!brand || !model || !year || !color || !pricePerDay || !engineType || !transmission || !numberOfSeats || !numberOfDoors || !trunkCapacity || !photoUrl) {
         return res.status(400).json({ message: 'All fields are required' });
@@ -46,7 +46,9 @@ const createNewCar = asyncHandler(async (req, res) => {
         numberOfSeats,
         numberOfDoors,
         trunkCapacity,
-        photoUrl
+        photoUrl,
+        available: true,
+        reservedBy: null,
     });
 
     if (car) {
@@ -57,50 +59,59 @@ const createNewCar = asyncHandler(async (req, res) => {
 });
 
 const updateCar = asyncHandler(async (req, res) => {
-    const { _id, brand, model, year, color, pricePerDay, engineType, airConditioning, transmission, numberOfSeats, numberOfDoors, trunkCapacity, photoUrl } = req.body;
+    const { brand, model, year, color, pricePerDay, engineType, airConditioning, transmission, numberOfSeats, numberOfDoors, trunkCapacity, photoUrl, available, reservedBy } = req.body;
+    const carId = req.params.carId;
 
-    if (!_id) {
+    if (!carId) {
         return res.status(400).json({ message: 'Car ID is required' });
     }
 
     try {
-        const carToUpdate = await Car.findById(_id).exec();
+        const carToUpdate = await Car.findById(carId).exec();
 
         if (!carToUpdate) {
             return res.status(404).json({ message: 'Car not found' });
         }
 
-        // Update fields if they were provided in the request
-        if (brand) carToUpdate.brand = brand;
-        if (model) carToUpdate.model = model;
-        if (year) carToUpdate.year = year;
-        if (color) carToUpdate.color = color;
-        if (pricePerDay) carToUpdate.pricePerDay = pricePerDay;
-        if (engineType) carToUpdate.engineType = engineType;
-        if (airConditioning) carToUpdate.airConditioning = airConditioning;
-        if (transmission) carToUpdate.transmission = transmission;
-        if (numberOfSeats) carToUpdate.numberOfSeats = numberOfSeats;
-        if (numberOfDoors) carToUpdate.numberOfDoors = numberOfDoors;
-        if (trunkCapacity) carToUpdate.trunkCapacity = trunkCapacity;
-        if (photoUrl) carToUpdate.photoUrl = photoUrl;
+        // Aktualizacja pól samochodu
+        carToUpdate.brand = brand || carToUpdate.brand;
+        carToUpdate.model = model || carToUpdate.model;
+        carToUpdate.year = year || carToUpdate.year;
+        carToUpdate.color = color || carToUpdate.color;
+        carToUpdate.pricePerDay = pricePerDay || carToUpdate.pricePerDay;
+        carToUpdate.engineType = engineType || carToUpdate.engineType;
+        carToUpdate.airConditioning = airConditioning || carToUpdate.airConditioning;
+        carToUpdate.transmission = transmission || carToUpdate.transmission;
+        carToUpdate.numberOfSeats = numberOfSeats || carToUpdate.numberOfSeats;
+        carToUpdate.numberOfDoors = numberOfDoors || carToUpdate.numberOfDoors;
+        carToUpdate.trunkCapacity = trunkCapacity || carToUpdate.trunkCapacity;
+        carToUpdate.photoUrl = photoUrl || carToUpdate.photoUrl;
+        // Sprawdzenie i aktualizacja stanu dostępności i zarezerwowanego użytkownika
+        if (available !== undefined ) {
+            carToUpdate.available = available;
+            
+        }
+        if (reservedBy !== undefined) {
+            carToUpdate.reservedBy = reservedBy;
+        }
 
         const updatedCar = await carToUpdate.save();
 
         res.json(`Car '${updatedCar.brand}' updated`);
     } catch (error) {
-        res.status(400).json({ message: 'Error updating car' });
+        console.error('Error updating car:', error);
+        res.status(400).json({ message: 'Error updating car', error: error.message });
     }
 });
 
-
 const deleteCar = asyncHandler(async (req, res) => {
-    const { id } = req.body;
+    const carId = req.params.carId;
 
-    if (!id) {
+    if (!carId) {
         return res.status(400).json({ message: 'Car ID required' });
     }
 
-    const car = await Car.findById(id).exec();
+    const car = await Car.findById(carId).exec();
 
     if (!car) {
         return res.status(400).json({ message: 'Car not found' });

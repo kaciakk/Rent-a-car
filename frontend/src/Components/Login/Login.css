@@ -5,23 +5,29 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -53%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    
   }
   
 /* Styl dla wnętrza kontenera logowania */
 .login-container-inside {
     width: 30%;
-    background-color: #ffffff;
+
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   }
   
   /* Styl dla labeli */
@@ -66,3 +72,21 @@
   a:hover {
     text-decoration: underline;
   }
+
+
+  /* Media query dla urządzeń o szerokości poniżej 768px */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%; /* Zmiana szerokości na mniejszą dla mniejszych urządzeń */
+    height: auto; /* Dostosowanie wysokości automatycznie */
+    top: unset; /* Usunięcie wartości top */
+    left: unset; /* Usunięcie wartości left */
+    transform: unset; /* Usunięcie transformacji */
+  }
+
+  .login-container-inside {
+    width: 80%; /* Zmiana szerokości wnętrza dla mniejszych urządzeń */
+    margin-top: 20px; /* Dodanie odstępu u góry */
+    margin-bottom: 20px; /* Dodanie odstępu na dole */
+  }
+}

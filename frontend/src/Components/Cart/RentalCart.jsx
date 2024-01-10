@@ -24,17 +24,17 @@ const RentalCart = () => {
 
   return (
     <div className="rental-list-container"> {/* Dodaje klasę "rental-container" */}
-      <h2>Twoje auta</h2>
+      <h2>Your reservations</h2>
       <div className="rental-grid">
         {carRentals.map((rental) => (
           <div key={rental._id} className="rental-item"> {/* Dodaje klasę "rental-item" */}
           <img src={rental.carId.photoUrl} alt={`Zdjęcie samochodu ${rental.carId.brand} ${rental.carId.model}`} className="rental-image" />
-            <p >ID użytkownika: {rental.userId}</p> {/* Dodaje klasę "rental-info" */}
-            <p >ID samochodu: {rental.carId._id}</p>
-            <p >Marka: {rental.carId.brand}</p>
+          <p >UserID: {rental.userId}</p> {/* Adds "rental-info" class. */}
+            <p >CarID: {rental.carId._id}</p>
+            <p >Brand: {rental.carId.brand}</p>
             <p >Model: {rental.carId.model}</p>
-            <p >Data rozpoczęcia: {rental.startDate}</p>
-            <p >Data zakończenia: {rental.endDate}</p>
+            <p >Start Date: {rental.startDate}</p>
+            <p >End Date: {rental.endDate}</p>
             
             {/* Dodaj inne pola z obiektu rental, jeśli są potrzebne */}
           </div>
