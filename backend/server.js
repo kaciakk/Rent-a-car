@@ -10,7 +10,6 @@ const corsOptions = require('./config/corsOptions')
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3500
-
 console.log(process.env.NODE_ENV)
 
 connectDB()
@@ -30,7 +29,8 @@ app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 app.use('/cars', require('./routes/carRoutes'))
 
-app.use('/car-rentals', require('./routes/rentalRoutes'))
+// Use carRentalRoutes after importing it
+app.use('/car-rentals', require('./routes/carRentalRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)

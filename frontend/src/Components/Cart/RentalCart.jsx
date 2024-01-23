@@ -10,7 +10,7 @@ const RentalCart = () => {
   useEffect(() => {
     const fetchUserCarRentals = async () => {
       try {
-        const response = await axios.get(`http://localhost:3500/car-rentals/userCarRentals/${userId}`);
+        const response = await axios.get(`http://localhost:3500/car-rentals/${userId}`);
         setCarRentals(response.data.userCarRentals);
       } catch (error) {
         console.error('Błąd podczas pobierania wypożyczeń:', error);
@@ -23,23 +23,22 @@ const RentalCart = () => {
   }, [userId]);
 
   return (
-    <div className="rental-list-container"> {/* Dodaje klasę "rental-container" */}
+    <div className="rental-list-container">
       <h2>Your reservations</h2>
       <div className="rental-grid">
         {carRentals.map((rental) => (
-          <div key={rental._id} className="rental-item"> {/* Dodaje klasę "rental-item" */}
-          <img src={rental.carId.photoUrl} alt={`Zdjęcie samochodu ${rental.carId.brand} ${rental.carId.model}`} className="rental-image" />
-          <p >UserID: {rental.userId}</p> {/* Adds "rental-info" class. */}
-            <p >CarID: {rental.carId._id}</p>
-            <p >Brand: {rental.carId.brand}</p>
-            <p >Model: {rental.carId.model}</p>
-            <p >Start Date: {rental.startDate}</p>
-            <p >End Date: {rental.endDate}</p>
-            
+          <div key={rental._id} className="rental-item">
+            <img src={rental.carId.photoUrl} alt={`Zdjęcie samochodu ${rental.carId.brand} ${rental.carId.model}`} className="rental-image" />
+            <p>User ID: {rental.userId}</p>
+            <p>Car ID: {rental.carId._id}</p>
+            <p>Brand: {rental.carId.brand}</p>
+            <p>Model: {rental.carId.model}</p>
+            <p>Start Date: {rental.startDate}</p>
+            <p>End Date: {rental.endDate}</p>
             {/* Dodaj inne pola z obiektu rental, jeśli są potrzebne */}
           </div>
         ))}
-     </div>
+      </div>
     </div>
   );
 };

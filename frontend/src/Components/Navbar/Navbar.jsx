@@ -58,6 +58,12 @@ export default function Navbar() {
             </li>
             
           )}
+          {isAdmin && (
+            <li>
+              <Link to='deletereservation'>Delete Reservation</Link>
+            </li>
+            
+          )}
         </ul>
       </div>
 

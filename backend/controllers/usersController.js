@@ -1,5 +1,6 @@
-const User = require('../models/user')
-const Car = require('../models/car');
+const User = require('../models/User')
+const Car = require('../models/Car');
+const CarRental = require('../models/CarRental');
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 
