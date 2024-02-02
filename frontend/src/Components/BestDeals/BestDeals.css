@@ -2,13 +2,21 @@
 .car-gif {
   display: flex;
   justify-content: center;
-  position: relative;
+ 
+}
+@media (max-width: 900px) {
+  .car-gif {
+    display: none; /* Ukryj element na urządzeniach mobilnych */
+  }
 }
 
+
 .text-overlay {
-  position: absolute;
-  top: 100px;
-  left: 725px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
 }
 
 /* Responsywność dla ikon */
@@ -30,10 +38,11 @@
 
 .text-overlay-second {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
-  position: absolute;
-  top: 570px;
-  left: 650px;
+
+
 }
 
 /* Responsywność dla sekcji 'car-bestdeal-container' */
@@ -101,16 +110,34 @@ h2 {
 }
 
 /* Responsywność na mniejsze urządzenia */
-@media (max-width: 768px) {
-  .car-rental-container-into {
-    width: 180px;
-    padding: 30px;
+/* Responsywność na urządzenia mobilne */
+@media (max-width: 576px) {
+  /* Zmniejsz marginesy na urządzeniach mobilnych */
+  .car-gif {
+    margin-bottom: 10px;
   }
 
-  .icon {
-    width: 50px;
-    height: 50px;
+  /* Zmień położenie tekstu na górze strony */
+  .text-overlay {
+    top: 80px; /* Zmień odległość od góry */
   }
 
-  /* Dodaj więcej reguł responsywności według potrzeb */
+  /* Zmniejsz marginesy między ikonami */
+  .icon-check {
+    margin-bottom: 3px;
+  }
+
+  /* Zmniejsz margines na dole dla tekstu centralnego */
+  .text-center {
+    margin-bottom: 10px;
+  }
+
+  /* Zmniejsz rozmiary nagłówków na urządzeniach mobilnych */
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }

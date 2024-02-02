@@ -22,9 +22,7 @@
     gap: 25px;
   }
 
-.car-container-form-first{
-    
-}
+
 .car-container-form-second{
     display: flex;
     flex-direction: column;
@@ -48,3 +46,39 @@
     height: auto;
     overflow: hidden;
 }
+
+/* Responsywność na urządzenia mobilne */
+@media (max-width: 768px) {
+    .car-form {
+      width: 85%; /* Zmniejsz szerokość formularza na urządzeniach mobilnych */
+      height: auto; /* Ustaw automatyczną wysokość */
+      top: 90%; /* Dostosuj pozycję na ekranie */
+      transform: translate(-50%, -50%); /* Przesuń do środka */
+      margin: 5px; /* Dodaj margines na wszystkich krawędziach */
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .car-container-form {
+      grid-template-columns: 1fr; /* Zmień układ na jedną kolumnę */
+      gap: 15px; /* Zmniejsz odstęp między elementami */
+    }
+  
+    .car-container-form-second {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Wyśrodkuj zawartość */
+    }
+  
+    .car-container-form-details {
+      width: 100%; /* Ustaw na 100% szerokości */
+      max-width: 300px; /* Ogranicz maksymalną szerokość */
+      margin: 0 auto; /* Wyśrodkuj w kontenerze */
+    }
+  
+    .car-image {
+      width: 100%; /* Ustaw na 100% szerokości */
+      height: auto; /* Ustaw automatyczną wysokość */
+    }
+  }
+  

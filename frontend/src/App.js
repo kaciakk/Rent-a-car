@@ -12,6 +12,7 @@ import Signup from './Components/Signup/Signup';
 import AdminPanel from './Pages/AdminPanel';
 import AdminControl from './Pages/AdminControl';
 import Cart from './Pages/Cart';
+import DeleteReservation from './Pages/DeleteReservation';
 import { Footer } from './Components/Footer/Footer';
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/adminpanel' element={<AdminPanel />} />
           <Route path='/admincontrol' element={<AdminControl />} />
+          <Route path='/deletereservation' element={<DeleteReservation />} />
           <Route path='/cart' element={<Cart />} />
           
   

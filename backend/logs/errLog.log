@@ -50,3 +50,31 @@
 20240105	21:17:06	45424b9f-cbba-4a73-947a-726cdb8eb160	SyntaxError: Unexpected non-whitespace character after JSON at position 315	POST	/cars	undefined
 20240109	12:40:15	830c63b9-5d1c-4346-86e9-7d430c8a4b15	SyntaxError: Expected double-quoted property name in JSON at position 29	PATCH	/cars/659863e045c130f1a5d649db	undefined
 20240110	13:34:38	4aede565-4e89-4455-af5f-fdfa05a59457	ValidationError: Car validation failed: year: Cast to Number failed for value "as" (type string) at path "year"	POST	/cars/	http://localhost:3000
+20240122	13:53:51	2fbf7ac7-446b-4061-b0a5-a4ea7c39eecc	SyntaxError: Unexpected end of JSON input	GET	/car-rentals	undefined
+20240122	13:53:57	6cb1369a-d24d-483d-b7f7-c759fe0a7c38	SyntaxError: Unexpected end of JSON input	GET	/car-rentals/	undefined
+20240122	13:53:59	faa8daa1-7f02-4a1a-b908-7612200f8ead	SyntaxError: Unexpected end of JSON input	GET	/car-rentals/	undefined
+20240122	13:54:14	10bdd9d8-dbd2-4261-8a2e-40ddf7dbdf15	SyntaxError: Unexpected end of JSON input	GET	/car-rentals/allCarRentals	undefined
+20240122	13:54:19	0468476c-d622-403d-ab78-1b0715a409d7	SyntaxError: Unexpected end of JSON input	GET	/allCarRentals	undefined
+20240122	13:55:00	040448d7-01f1-4993-a128-49b0c81ac216	SyntaxError: Unexpected end of JSON input	GET	/rentals/allCarRentals	undefined
+20240122	13:55:17	694157ea-b092-47c2-95b5-aaa7a77f94c8	SyntaxError: Unexpected end of JSON input	GET	/cars	undefined
+20240122	14:17:28	4c932187-75f1-44ac-ac3f-85ab49cc14fc	SyntaxError: Expected double-quoted property name in JSON at position 27	PATCH	/car-rentals/cancelCarRental/65ae5f7abdb8481c4827265d	undefined
+20240123	11:31:30	447bf7c8-cb61-4d0a-8010-0995b0f184be	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:32:03	5d7349a4-f497-4983-87b9-e3691d34b112	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:32:14	01ceea63-2212-4780-a745-39f7ac8a43b3	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:33:40	eeca5b83-fd2d-4508-9501-59435b3d703d	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:34:44	140751c5-fa34-4220-9f34-7e6d481fb930	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:35:24	da206857-3099-4f44-aab4-c0b96d2bcd36	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:39:16	b2a50e06-a05b-4b1d-a12d-42edf8df76e3	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:39:36	d1ad57f2-a64a-477a-bf90-39834b73888b	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:41:49	9cfe62e5-39c5-4718-aae5-f56d70174a65	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:42:06	3aaf22d5-56e2-4afc-a3e1-2e7cecf2425d	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:45:36	ea535026-bdaa-4028-8c5f-8b5de1991049	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:46:21	fb4cf306-8b70-4e83-85bc-23520c8c0733	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:47:40	5bad29c8-87b1-407c-9132-86dc0715f89b	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:48:20	a93abe39-b693-4b7b-b6ef-5b6900eed047	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	11:50:35	35e2817b-75ce-422b-9440-67af4be9a1c6	ReferenceError: CarRental is not defined	GET	/car-rentals	undefined
+20240123	12:13:41	b2114f66-ed00-4aa4-b538-fbbd54e73c47	TypeError: Cannot destructure property 'rentalId' of 'req.body.rentalId' as it is undefined.	DELETE	/car-rentals/65ae681780c55f589d236608	undefined
+20240123	12:18:20	28db4ce5-5b50-46b4-a93e-f97d6ab50d37	TypeError: Cannot destructure property 'rentalId' of 'req.body.rentalId' as it is undefined.	DELETE	/car-rentals	undefined
+20240123	13:25:42	56ba404f-e0b5-488a-ab1c-643eb5ec8c2f	SyntaxError: Unexpected non-whitespace character after JSON at position 116	POST	/car-rentals/	undefined
+20240123	13:25:54	20342169-30e1-4cff-9844-d365c8319bdc	ValidationError: CarRental validation failed: userId: Cast to ObjectId failed for value "abc123" (type string) at path "userId" because of "BSONError", carId: Cast to ObjectId failed for value "xyz456" (type string) at path "carId" because of "BSONError"	POST	/car-rentals/	undefined
+20240123	13:26:06	064791c6-89e5-4263-be8c-011a032990dd	ValidationError: CarRental validation failed: userId: Cast to ObjectId failed for value "abc123" (type string) at path "userId" because of "BSONError", carId: Cast to ObjectId failed for value "xyz456" (type string) at path "carId" because of "BSONError"	POST	/car-rentals/	undefined

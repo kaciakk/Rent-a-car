@@ -40,7 +40,7 @@ const CarList = () => {
   const handleReservationSubmit = async () => {
     try {
       if (selectedCar && startDate && endDate && userId) {
-        const response = await axios.post('http://localhost:3500/car-rentals/addCarRental', {
+        const response = await axios.post('http://localhost:3500/car-rentals/', {
           userId: userId,
           carId: selectedCar._id,
           startDate,
