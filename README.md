@@ -54,7 +54,6 @@ This is a car rental application built using React, MongoDB, Express.js, and Nod
 - `models/Car.js`: Defines the MongoDB schema for cars.
 - `models/CarRental.js`: Defines the MongoDB schema for car rentals.
 - `models/User.js`: Defines the MongoDB schema for users.
-- `client/src/components`: Contains React components for different parts of the application, including car listing, reservation, user management, etc.
 
 ### Usage:
 
