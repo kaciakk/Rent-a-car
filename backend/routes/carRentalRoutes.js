@@ -3,7 +3,7 @@ const router = express.Router()
 const carRentalController = require('../controllers/carRentalController');
 
 router.get('/', carRentalController.getAllRental)
-router.get('/:userId', carRentalController.getUserCarRental)
+router.get('/:userId', carRentalController.getUserCarRentalById);
 router.post('/', carRentalController.createNewRental)
 router.patch('/:rentalId', carRentalController.updateRental)
 router.delete('/:rentalId',  carRentalController.deleteRental)

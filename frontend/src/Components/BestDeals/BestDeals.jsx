@@ -32,12 +32,14 @@ export default function BestDeals() {
 
   return (
     <div>
-      <div className='car-gif'>
-        <AnimatedGif src="https://usagif.com/wp-content/uploads/gifs/car-driving-43.gif" alt="animated gif" />
-      </div>
+      <div className='car-gif-container'>
       <div className='text-overlay'>
         <h1>Find deals and book!</h1>
       </div>
+      <div className='car-gif'>
+        <AnimatedGif src="https://usagif.com/wp-content/uploads/gifs/car-driving-43.gif" alt="animated gif" />
+      </div>
+      
       <div className='text-overlay-second'>
         <div className='text-overlay-second-into'>
       <img src={check} alt="Icon" className="icon-check" />
@@ -52,6 +54,7 @@ export default function BestDeals() {
         </div>
         
       </div>
+     </div>
       
       <div className='text-center'> <h2>
         Especially for YOU a rich fleet of new cars!</h2></div>

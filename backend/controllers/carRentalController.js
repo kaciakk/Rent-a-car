@@ -71,9 +71,9 @@ const deleteRental = asyncHandler(async (req, res) => {
     res.json(reply);
 });
 
-const getUserCarRental = asyncHandler(async (req, res) => {
+const getUserCarRentalById = asyncHandler(async (req, res) => {
     try {
-      const userId = req.params.user_Id;
+      const userId = req.params.userId;
       const userCarRentals = await CarRental.find({ userId }).populate('carId');
   
       if (!userCarRentals || userCarRentals.length === 0) {
@@ -92,5 +92,5 @@ module.exports = {
     createNewRental,
     updateRental,
     deleteRental,
-    getUserCarRental
+    getUserCarRentalById
 };
